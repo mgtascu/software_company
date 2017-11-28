@@ -18,7 +18,7 @@ public class Programmer extends Employee implements Payments, AdditionalJobs {
         this.yearsOfXp = yearsOfXp;
     }
 
-    public ArrayList<String> getpLang() {
+    public ArrayList<String> getpLangList() {
         return pLangList;
     }
 
