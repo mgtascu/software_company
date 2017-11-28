@@ -1,35 +1,40 @@
 package com.softcomp;
 
 
-public class Secretary extends Employee implements Payments{
 
-    public String lang;
 
-    public Secretary(String name, long ssn, double bankAccount,String lang){
-        super(name, ssn,bankAccount);
-        this.lang=lang;
+public class Secretary extends Employee implements Payments {
+
+    private String lang;
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+
+    public Secretary() {
+        super();
     }
 
     @Override
     public void getSalary() {
-        double salary=1000;
-        bankAccount+=salary;
-        System.out.println(name + " earned the monthly salary of " + salary +" RON");
+        double salary = 1000;
+        bankAccount += salary;
+        System.out.println(getName() + " earned the monthly salary of " + salary + " RON");
     }
 
-    @Override
-    public void getPaid(int payment) {
-        bankAccount+=payment;
-    }
 
     @Override
-    public void spend(double ammountSpent) {
+    public void spend(double amountSpent) {
 
-        if(bankAccount>ammountSpent){
-            bankAccount-=ammountSpent;
-            System.out.println(name + " spent " + ammountSpent + " RON");
-            }
-        else
-            System.out.println(name+ " tries to spend " + ammountSpent + " RON, but unfortunately has only " + bankAccount +" RON");
+        if (bankAccount > amountSpent) {
+            bankAccount -= amountSpent;
+            System.out.println(getName() + " spent " + amountSpent + " RON");
+        } else
+            System.out.println(getName() + " tries to spend " + amountSpent + " RON, but unfortunately has only " + bankAccount + " RON");
     }
 }

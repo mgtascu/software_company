@@ -1,36 +1,61 @@
 package com.softcomp;
 
 
-public class Programmer extends Employee implements Payments{
+public class Programmer extends Employee implements Payments, AdditionalJobs {
 
-    public int yearsOfXp;
-    public String pLang;
 
-    public Programmer(String name, long ssn, double bankAccount,int yearsOfXp, String pLang){
-        super(name,ssn,bankAccount);
-        this.yearsOfXp=yearsOfXp;
-        this.pLang=pLang;
+    private int yearsOfXp;
+    private String pLang;
+
+    public int getYearsOfXp() {
+        return yearsOfXp;
     }
+
+    public void setYearsOfXp(int yearsOfXp) {
+        this.yearsOfXp = yearsOfXp;
+    }
+
+    public String getpLang() {
+        return pLang;
+    }
+
+    public void setpLang(String pLang) {
+        this.pLang = pLang;
+    }
+
+
+    public Programmer() {
+        super();
+    }
+
     @Override
     public void getSalary() {
-        double salary=2000+(yearsOfXp*500);
-        bankAccount+=salary;
-        System.out.println(name + " earned the monthly salary of " + salary +" RON");
+        double salary = 2000 + (getYearsOfXp() * 500);
+        bankAccount += salary;
+        System.out.println(getName() + " earned the monthly salary of " + salary + " RON");
     }
 
     @Override
-    public void getPaid(int payment) {
-        bankAccount+=payment;
+    public void spend(double amountSpent) {
+
+        if (bankAccount > amountSpent) {
+            bankAccount -= amountSpent;
+            System.out.println(getName() + " spent " + amountSpent + " RON");
+        } else
+            System.out.println(getName() + " tries to spend " + amountSpent + " RON, but unfortunately has only " + bankAccount + " RON");
     }
 
     @Override
-    public void spend(double ammountSpent) {
+    public void addRAM() {
+        double jobPayment = 100;
+        bankAccount += jobPayment;
+        System.out.println(getName() + " earned an additional " + jobPayment + " RON, for installing a new RAM chip");
+    }
 
-        if(bankAccount>ammountSpent){
-            bankAccount-=ammountSpent;
-            System.out.println(name + " spent " + ammountSpent + " RON");
-        }
-        else
-            System.out.println(name+ " tries to spend " + ammountSpent + " RON, but unfortunately has only " + bankAccount +" RON");
+    @Override
+    public void changeHDD() {
+        double jobPayment = 200;
+        bankAccount += jobPayment;
+        System.out.println(getName() + " earned an additional " + jobPayment + " RON, for changing a Hard Drive");
     }
 }
