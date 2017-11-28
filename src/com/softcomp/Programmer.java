@@ -13,7 +13,9 @@ public class Programmer extends Employee implements Payments{
     }
     @Override
     public void getSalary() {
-        bankAccount+=(2000+yearsOfXp*500);
+        double salary=2000+(yearsOfXp*500);
+        bankAccount+=salary;
+        System.out.println(name + " earned the monthly salary of " + salary +" RON");
     }
 
     @Override
@@ -23,6 +25,12 @@ public class Programmer extends Employee implements Payments{
 
     @Override
     public void spend(double ammountSpent) {
-        bankAccount-=ammountSpent;
+
+        if(bankAccount>ammountSpent){
+            bankAccount-=ammountSpent;
+            System.out.println(name + " spent " + ammountSpent + " RON");
+        }
+        else
+            System.out.println(name+ " tries to spend " + ammountSpent + " RON, but unfortunately has only " + bankAccount +" RON");
     }
 }

@@ -11,7 +11,9 @@ public class SysIng extends Employee implements Payments {
 
     @Override
     public void getSalary() {
-        bankAccount+=1500;
+        double salary=1500;
+        bankAccount+=salary;
+        System.out.println(name + " earned the monthly salary of " + salary +" RON");
     }
     @Override
     public void getPaid(int payment) {
@@ -20,6 +22,13 @@ public class SysIng extends Employee implements Payments {
 
     @Override
     public void spend(double ammountSpent) {
-        bankAccount-=ammountSpent;
+
+        if(bankAccount>ammountSpent){
+            bankAccount-=ammountSpent;
+            System.out.println(name + " spent " + ammountSpent + " RON");
+        }
+        else
+            System.out.println(name+ " tries to spend " + ammountSpent + " RON, but unfortunately has only " + bankAccount +" RON");
+
     }
 }
