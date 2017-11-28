@@ -12,10 +12,13 @@ public class Main {
         e1.setName("Doina");
         e1.setSsn(1837918121);
         e1.setLang("Spanish");
+        e1.setLang("English");
 
         p1.setName("Hortentiu");
         p1.setSsn(1920501543);
         p1.setpLang("JavaScript");
+        p1.setpLang("C#");
+        p1.setpLang("C/C++");
         p1.setYearsOfXp(5);
 
         s1.setName("Cameliu");
