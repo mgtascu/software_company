@@ -1,18 +1,20 @@
 package com.softcomp;
 
 
-
+import java.util.ArrayList;
 
 public class Secretary extends Employee implements Payments {
 
     private String lang;
+    private ArrayList<String> langList = new ArrayList<>();
 
-    public String getLang() {
-        return lang;
+    public ArrayList<String> getLang() {
+        return langList;
     }
 
     public void setLang(String lang) {
         this.lang = lang;
+        langList.add(lang);
     }
 
 
