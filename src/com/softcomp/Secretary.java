@@ -8,7 +8,7 @@ public class Secretary extends Employee implements Payments {
     private String lang;
     private ArrayList<String> langList = new ArrayList<>();
 
-    public ArrayList<String> getLang() {
+    public ArrayList<String> getLangList() {
         return langList;
     }
 
