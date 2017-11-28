@@ -1,11 +1,14 @@
 package com.softcomp;
 
 
+import java.util.ArrayList;
+
 public class Programmer extends Employee implements Payments, AdditionalJobs {
 
 
     private int yearsOfXp;
     private String pLang;
+    private ArrayList<String> pLangList = new ArrayList<>();
 
     public int getYearsOfXp() {
         return yearsOfXp;
@@ -15,12 +18,13 @@ public class Programmer extends Employee implements Payments, AdditionalJobs {
         this.yearsOfXp = yearsOfXp;
     }
 
-    public String getpLang() {
-        return pLang;
+    public ArrayList<String> getpLang() {
+        return pLangList;
     }
 
     public void setpLang(String pLang) {
         this.pLang = pLang;
+        pLangList.add(pLang);
     }
 
 
